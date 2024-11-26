@@ -32,7 +32,7 @@ export default function Dashboard() {
         <div className='flex w-full bg-white rounded-xl '>
           <div className="flex-1 p-10">
             <div className="font-extrabold text-[48px] mt-10">
-              <div>I&lsquo;m Rayan Adlrdard</div>
+              <div>I&lsquo;m Hidayat Nurwahid</div>
               <div>
                 <span className="text-[#FFB400]">Front-end</span> Developer 
               </div>
@@ -47,7 +47,7 @@ export default function Dashboard() {
           <div>
             <img src="images/avatar.png" />
           </div>
-        </div>
+        </div>I‘m Rayan Adlrdard
 
         <div className="mt-20 text-center">
           <h2 className="text-[32px] font-bold">My services</h2>
