@@ -4,6 +4,7 @@ import Card from '../../../../../components/card';
 import { useEffect, useState, useRef } from 'react';
 import ConfigDialog from '../../../../../components/ConfirmDialog'
 import { Editor } from '@tinymce/tinymce-react';
+
 export default function EditBlogs() {
     const router= useRouter()
     const editorRef = useRef(null);
@@ -18,11 +19,14 @@ export default function EditBlogs() {
         content:'',
         _id:''
     });
+
+
     const fetDataById = async ()=>{
         try{
             const res = await fetch(`/api/blogs/${params.id}`);
             let responseData = await res.json()
             setData(responseData.data)
+
         }catch(err){
             console.error("ERR", err.message)
             setModal(true)
@@ -30,25 +34,31 @@ export default function EditBlogs() {
             setModalMessage(err.message)
         }
     }
+
     const onCancel=()=>{
         setModal(false)
     }
+
     const onOkOnly=()=>{
         setModal(false)
         router.push('/admin/blogs')
     }
+
     const inputHandler= (e) =>{
         setData({...data, [e.target.name]: e.target.value })
     }
+
     const onSubmitData=async ()=>{
         try{
             if (editorRef.current) {
                 const body = data
                 body.content = editorRef.current.getContent();
+
                 let res = await fetch(`/api/blogs/${data._id}`, {
                     method:'PUT',
                     body: JSON.stringify(body),
                 })
+
                 let resData = await res.json()
                 if(!resData.data){
                 throw Error(resData.message)
@@ -64,9 +74,11 @@ export default function EditBlogs() {
           setModalMessage(err.message)
         }
     }
+
     useEffect(()=>{
         fetDataById()
     },[])
+
     return (
       <>
         <Card title="Blogs Edit Form">
@@ -79,6 +91,7 @@ export default function EditBlogs() {
                         type="text" 
                         className="w-full border my-input-text"/>
             </div>
+
             <div className="w-full my-2">
                 <label>Sub Title</label>
                     <input 
@@ -87,6 +100,7 @@ export default function EditBlogs() {
                         onChange={inputHandler}
                         className="w-full border my-input-text"/>
             </div>
+
             <Editor
                     id='content'
                     apiKey='hz9os6h0p1826jcqknks4q1fm8yl9khctaa7nmexkf0rnx2e'
@@ -107,12 +121,14 @@ export default function EditBlogs() {
                     content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
                     }}
                 />
+
             <button  className="btn-primary" onClick={onSubmitData}>
                 <span className="relative text-sm font-semibold text-white">
                     Save Data
                 </span>
             </button> 
         </Card>
+
         <ConfigDialog  
             onOkOny={()=>onOkOnly()} 
             showDialog={modal}
@@ -124,3 +140,4 @@ export default function EditBlogs() {
       </>
     );
 }
+  

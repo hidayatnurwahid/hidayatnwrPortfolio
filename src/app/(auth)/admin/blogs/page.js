@@ -62,6 +62,10 @@ export default function AdminBlogs() {
         }
     }
 
+    const gotoEditPage=(id)=>{
+        router.push(`/admin/blogs/${id}`)
+    }
+
     useEffect(()=>{
         fetchData()
     },[])
@@ -91,7 +95,7 @@ export default function AdminBlogs() {
                                             Detail
                                         </button>
                                         <button 
-                                            onClick={()=>onEditData}
+                                            onClick={()=>gotoEditPage(item._id)}
                                             className="bg-gray-300 hover:bg-gray-400 text-gray-800 py-2 px-4">
                                             Edit
                                         </button>
