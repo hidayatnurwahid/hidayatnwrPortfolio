@@ -1,7 +1,6 @@
 "use client"
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
 
 const CardItem = ({ title })=>{
@@ -56,16 +55,11 @@ export default function Blogs() {
       
     return (
       <>
-      <div>
-      <Image
-        src="/images/joydayat.png"
-        alt="Sample Image"
-        width={500}
-        height={300}
-        priority
-        style={{ display: 'block', margin: '0 auto' }}
-      />
-    </div>
+        <h2 className="text-center text-5xl font-bold w-full mt-24 text-fuchsia-500">Joydayat</h2>
+        <p className="text-center margin-0 mx-auto w-3/6	">
+          hidayat nurwahid mahasiswa aktif semester 5
+        </p>
+
         {/* Start Search Box */}
         <form onSubmit={handleSearchSubmit} className="flex items-center justify-center my-3 bg-gray-100">
         <div className="relative w-full max-w-2xl my-7">

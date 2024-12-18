@@ -15,7 +15,7 @@ export default function PublicMenu() {
         <div className="max-w-5xl mx-auto px-6 md:px-12 xl:px-6">
           <div className="flex flex-wrap items-center justify-between">
             <div>
-              <a href="/" className="text-orange-500 font-semibold">
+              <a href="/" className="text-fuchsia-500 font-semibold">
                 Joydayat
               </a>
             </div>
